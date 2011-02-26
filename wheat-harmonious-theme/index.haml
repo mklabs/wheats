@@ -1,0 +1,40 @@
+%div{class: 'frame frame-center', data-path: '/' + datapath}
+  .content.wikistyle
+    :each article in articles.slice(0,15)
+      %article.article.clearfix
+        .author
+          .date{title: article.date}&= formatDate(article.date, "%d/%m/%Y")
+        %h1.article-title
+          %a{href: "/article/" + article.name, rel: 'bookmark', title: 'Permanent link to ' + article.title}&= article.title
+        %p
+          = intro(article.markdown)
+        %a.js-slide-to{href: "/article/" + article.name} Read more...
+
+  .sidebar.wikistyle
+    .aside
+      = markdownEncode(description)
+    .bubble
+      %h4
+        Articles
+      %ul
+        :each article in articles.slice(0,20)
+          %li
+            %a{href: "/article/" + article.name}&=article.title
+            :if article.node
+              %span.versiontag&= article.node
+            
+            
+    .aside.ui-state-highlight.ui-corner-all
+      %h4.ui-widget-header.ui-corner-all Categories
+      %div
+        %ul
+          :each category in categories
+            %li
+              %a{href: "/category/" + category, class: 'js-slide-to'}&= unescape(category)
+              
+    .aside.promote-js{style: 'width: 180px; margin: auto;'}
+      %a{href: 'https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array', title: 'Javascript Array .shift'}
+        %img{src: 'http://static.jsconf.us/promotejsh.gif', height: '150', width: '180', alt: 'Javascript Array .shift'}
+      %h4.ui-widget-header.ui-corner-all{style: 'text-align: right;'} 
+        %a{href: 'http://promotejs.com/'} PromoteJS
+      

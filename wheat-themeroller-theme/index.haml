@@ -1,0 +1,34 @@
+#main.ui-widget-content.ui-corner-all
+  :each article in articles.slice(0,15)
+    .article
+      .author
+        %img{src:gravitar(article.author.email, 30)}
+        By #{article.author.name}
+        .date{title: article.date}&= formatDate(article.date, "%Y.%m.%d")
+      %h3{style: "margin-right: 150px"}
+        %a{href: "/" + article.name}&= article.title
+      %p
+        = intro(article.markdown)
+      %a{href: "/" + article.name} Read more...
+
+#sidebar
+  .aside.ui-state-highlight.ui-corner-all
+    = markdownEncode(description)
+  .aside.ui-state-highlight.ui-corner-all
+    %h4.ui-widget-header.ui-corner-all Articles
+    %div
+      %ul
+        :each article in articles.slice(0,20)
+          %li
+            %a{href: "/" + article.name}&=article.title
+            &=" by " + article.author.name
+            :if article.node
+              %span.versiontag&= article.node
+
+  .aside.ui-state-highlight.ui-corner-all
+    %h4.ui-widget-header.ui-corner-all Categories
+    %div
+      %ul
+        :each category in categories
+          %li
+            %a{href: "/category/" + category }&= unescape(category)
