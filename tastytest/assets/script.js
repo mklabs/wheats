@@ -18,9 +18,7 @@
       if(!theme) {return false;}
       
       body.className = body.className.replace(( isColorSheme ? rColorSheme : rWide ), theme);
-    },
-    
-    noise = 
+    };
 
     // trigger on click
     themes.delegate('a', 'click', themify);
