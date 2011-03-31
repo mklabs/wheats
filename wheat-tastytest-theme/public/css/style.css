@@ -181,13 +181,13 @@ body a:hover {
   color: #777;
 }
 
-.header ul {
+.header ul.nav {
   float: right;
   margin: 0;
   list-style: none;
 }
 
-.header ul li {
+.header ul.nav li {
   display: block;
   float: left;
   width: 90px;
@@ -195,20 +195,53 @@ body a:hover {
   padding: 18px 5px 11px 15px;
 }
 
-.header ul li a {
+.header ul.nav li a {
   display: inline-block;
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
 }
 
+.header p.colors {
+  font-size: 1em;
+}
+
+#container .header p.colors, #container .header p.colors a {
+  padding: 0;
+  margin: 0;
+}
+
+.header p.colors a {
+  display: block;
+  float: left;
+  width: 40px;
+  height: 5px;
+  text-indent: -4000px;
+  cursor: pointer;
+}
+
+.header p.colors a.light {background-color: #E6E6E6;}
+.header p.colors a.darky {background-color: #202020;}
+
+/** search **/
+form.search {
+  padding: 2em;
+}
+form.search input {-webkit-transition:all 1s ease-in-out;-moz-transition:all 1s ease-in-out;}
+form.search input:focus {width: 100%;}
+form.search input{width: 30%;}
+
 .header a {	-webkit-transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out; }
-.header a:hover {
+.header ul.nav a:hover {
   -moz-transform: scale(1.1);
 	-o-transform: scale(1.1);
 	-webkit-transform: scale(1.1);
 	-ms-transform: scale(1.1);
 	transform: scale(1.1);
+}
+
+.header p.colors a:hover {
+  height: 15px;
 }
 
 /* Headings */
@@ -495,6 +528,7 @@ body.black h5, body.black h5 a {
 
 body.black .article-sidebar h4, body.black .article-sidebar h3 {
   border-bottom: none;
+  padding-left: 0;
 }
 
 body.black a, body.black a:active {
@@ -520,6 +554,10 @@ body.darky {
 
 body.darky a, body.blue a {
   text-shadow: 0 1px 1px rgba(0,0,0,.5)
+}
+
+body.darky .header .logo a {
+  color: #E6E6E6;
 }
 
 body.brown {

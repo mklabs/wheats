@@ -21,15 +21,17 @@
   %body.white.tiny
     #container
       %header{role: 'banner', class: 'header clearfix'}
+        %p.colors
+          %a{href: '#/themes/white/', class: 'light'} Light
+          %a{href: '#/themes/darky/', class: 'darky'} Darky
+        
         %h1.logo
           %a{href: '/'} blog.mklog.fr
           
-        %ul
-          %li %a{href: '#/themes/black/'} Black
-          %li %a{href: '#/themes/white/'} Light
-          %li %a{href: '#/themes/darky/'} Darky
-          %li %a{href: '#/themes/blue/'} Blue
-          %li %a{href: '#/themes/brown/'} Brown
+        %ul.nav
+          %li %a{href: '/'} Blog
+          %li %a{href: '/'} Code
+          %li %a{href: '/search/', class: 'search'} Search
     
     
       #main.csstransition-please.clearfix{role: 'main'}

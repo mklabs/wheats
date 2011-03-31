@@ -18,10 +18,8 @@
       if(!theme) {return false;}
       
       body.className = body.className.replace(( isColorSheme ? rColorSheme : rWide ), theme);
-    },
+    };
     
-    noise = 
-
     // trigger on click
     themes.delegate('a', 'click', themify);
 
@@ -48,6 +46,58 @@
     $('.hovereaster').click(function() {
       $(this).text('✌')
         .addClass('aha');
+    });
+    
+    // search. make better tomorrow (tmpl and friends)
+    $('.search').click(function() {
+      
+      var api = "https://www.googleapis.com/customsearch/v1?key=AIzaSyAIzy2MTzebP4sRKS06l9zZ9-BTuT_oiCI&cx=008711380682935662586:zfniycnc6ia";
+      
+      var art = $('.article-main'),
+
+      results = $('<div />', {class: 'results'});
+      
+      var form = $('<form />', {'class': 'search'})
+        .append($('<input />', {
+          type: 'text',
+          name: 'q',
+          autocomplete: 'off'
+        }))
+        .bind('submit', function(ev) {
+          var v = $(this).find('input').val();
+
+          results.empty();
+          
+          $.ajax({
+            url: api,
+            type: 'get',
+            dataType: 'jsonp',
+            data: {q: v},
+            success: function(response) {
+              console.log('complete', arguments);
+
+              var items = response.items, html = [];
+              
+              if(!items) {return;}
+
+              $.each(items, function(i, val) {
+                html.push('<h3><a href="'+this.link+'">' + this.title.split('mklog.fr')[0].replace(' -', '') + '</h3>');
+                html.push('<p>' + this.snippet + '</p>');
+              });
+
+              results.html(html.join(''));
+            }
+          });
+          
+          return false;
+        });
+      
+      
+      art.empty()
+        .append($('<h2 />', {text: 'Search!'}))
+        .append(form)
+        .append(results);
+      
     });
 
   });
