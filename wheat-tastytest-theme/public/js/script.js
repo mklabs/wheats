@@ -5,23 +5,26 @@
 
     var themes = $('.themes'),
     
-    rColorSheme = /black|darky|blue|white|brown/,
-    
-    rWide = /tiny|large/,
+    hrefReg = /\#\/themes\/(\w+)/,
+    widthReg = /tiny|large/,
 
     themify = function(ev) {
-      var href = ev.target.href,
-      m = href.match(/\#\/themes\/(\w+)/)
+      var m = ev.target.href.match(hrefReg),
       theme = m && m[1] ? m[1] : '',
-      isColorSheme = theme !== 'tiny' && theme !== 'large',
-      storeKey = isColorSheme ? 'theme' : 'width';
+      isWidth = widthReg.test(theme),
+      r = isWidth ? widthReg : /\w+/g;
 
       if(!theme) {
         return false;
       }
-      
-      body.className = body.className.replace(( isColorSheme ? rColorSheme : rWide ), theme);
-      amplify.store(storeKey, theme);
+
+      body.className = body.className.replace(r, isWidth ? theme : function(a) {
+        return isWidth ? a :
+          widthReg.test(a) ? a :
+          theme;
+      });
+
+      amplify.store(isWidth ? 'width' : 'theme', theme);
     };
     
     // trigger on click
