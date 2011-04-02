@@ -124,7 +124,13 @@ clip:rect(1px,1px,1px,1px);}
 
 #container{margin:0 auto; width:940px; padding: 0;}
 #main {margin: 2em 0;}
-.csstransition-please{-webkit-transition:all .5s ease-in-out;-moz-transition:all .5s ease-in-out;}
+.csstransition-please{
+   -moz-transition: all 0.5s ease-out;
+     -o-transition: all 0.5s ease-out;
+-webkit-transition: all 0.5s ease-out;
+        transition: all 0.5s ease-out;
+}
+
 
 /* These selection declarations have to be separate.
 No text-shadow:twitter.com/miketaylr/status/12228805301 
@@ -158,15 +164,18 @@ body {
 	line-height: 1.5;
 	
 	background: #fafafa;
-	-webkit-transition:all .5s ease-in-out;-moz-transition:all .5s ease-in-out;
+}
+
+body, body a {
+     -moz-transition: all 0.5s ease-out;
+       -o-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+          transition: all 0.5s ease-out;
 }
 
 body a {
-	text-decoration: none;
-	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), 0 -1px 0 #fff;
-	-webkit-transition:all .5s ease-in-out;-moz-transition:all .5s ease-in-out;
+  text-decoration: none;
 }
-
 body a:hover {
 	color: #999;
 }
@@ -233,8 +242,9 @@ body a:hover {
 form.search {
   padding: 2em;
 }
+
 form.search input {
-  -webkit-transition:all 1s ease-in-out;-moz-transition:all 1s ease-in-out;
+  -moz-transition: all 0.1s ease-out; -o-transition: all 0.1s ease-out; -webkit-transition: all 0.1s ease-out; transition: all 0.1s ease-out;
   
   height: 1.5em;
   width: 40%;
@@ -433,7 +443,7 @@ pre:after {
 
 /** article layout **/
 .article-main, .article-sidebar {
-  -webkit-transition:all .5s ease-in-out;-moz-transition:all .5s ease-in-out;
+  -webkit-transition:all .5s ease-in-out;-moz-transition:all .5s ease-in-out;-o-transition: all 0.5s ease-out;transition: all 0.5s ease-out;
   float: left;
 }
 
