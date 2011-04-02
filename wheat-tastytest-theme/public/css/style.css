@@ -506,20 +506,17 @@ pre:after {
   top: 0.5em;
 }
 
-.wide-content a {
-  cursor: pointer;
-}
+.ie6 .wide-content {position: absolute;}
 
 .wide-content a:hover {
-  color: #f8f8f8;
-  cursor: pointer;
+  color: #999;
 }
 
-.large .wide {opacity: 0;}
-.large .nowide {opacity: 1;}
+.large .wide {display: none;}
+.large .nowide {display: block;}
 
-.tiny .wide {opacity: 1;}
-.tiny .nowide {opacity: 0;}
+.tiny .wide {display: block;}
+.tiny .nowide {display: none;}
 
 .large .article-main {width: 940px; float: left;}
 .large .article-sidebar {

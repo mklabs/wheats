@@ -3,7 +3,7 @@
 
   $(function(){
 
-    var themes = $('p.themes'),
+    var themes = $('.themes'),
     
     rColorSheme = /black|darky|blue|white|brown/,
     
@@ -13,16 +13,19 @@
       var href = ev.target.href,
       m = href.match(/\#\/themes\/(\w+)/)
       theme = m && m[1] ? m[1] : '',
-      isColorSheme = theme !== 'tiny' && theme !== 'large';
+      isColorSheme = theme !== 'tiny' && theme !== 'large',
+      storeKey = isColorSheme ? 'theme' : 'width';
 
-      if(!theme) {return false;}
+      if(!theme) {
+        return false;
+      }
       
       body.className = body.className.replace(( isColorSheme ? rColorSheme : rWide ), theme);
+      amplify.store(storeKey, theme);
     };
     
     // trigger on click
     themes.delegate('a', 'click', themify);
-
 
     $(window).bind('hashchange', function(ev){
       // trigger on hashchange
@@ -31,17 +34,7 @@
           href: global.location.hash
         }
       });
-    })
-
-    // Init on page load
-    themify({
-      target: {
-        href: global.location.hash
-      }
     });
-    
-    // widify
-    $('.wide-content a').bind('click', themify);
 
     $('.hovereaster').click(function() {
       $(this).text('✌')
