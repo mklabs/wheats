@@ -321,14 +321,42 @@ p,dl,h4 { padding: 0 15px }
 #container code{font-size:12px;background-color:#f8f8f8;color:#444;padding:0 .2em;border:1px solid #dedede; overflow: auto;}
 #container a code,#container a:link code,#container a:visited code{color:#4183c4;}
 
-code .b, code .pln { color: #7BE1E6; }
-code .y, code .pun { color: #FEFFAB; }
-code .kwd { color: #AEAEAE; }
-code .tag, code .typ { color: #BADA55; }
-code .dec {color: #E16734;}
-code .atn {color: #E3D7BF;}
-code .atv {color: #E3D7BF;}
-code .com { color: #89A725; }
+
+/* desert scheme ported from vim to google prettify */
+pre { display: block; background-color: #333 }
+pre .nocode { background-color: none; color: #000 }
+pre .str { color: #bada55 } /* string  - bad ass */
+pre .kwd { color: #f0e68c; font-weight: bold }
+pre .com { color: #87ceeb } /* comment - skyblue */
+pre .typ { color: #98fb98 } /* type    - lightgreen */
+pre .lit { color: #cd5c5c } /* literal - darkred */
+pre .pun { color: #fff }    /* punctuation */
+pre .pln { color: #fff }    /* plaintext */
+pre .tag { color: #f0e68c; font-weight: bold } /* html/xml tag    - lightyellow */
+pre .atn { color: #bdb76b; font-weight: bold } /* attribute name  - khaki */
+pre .atv { color: #ffa0a0 } /* attribute value - pink */
+pre .dec { color: #98fb98 } /* decimal         - lightgreen */
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE } /* IE indents via margin-left */
+li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
+/* Alternate shading for lines */
+li.L1,li.L3,li.L5,li.L7,li.L9 { }
+
+@media print {
+  pre { background-color: none }
+  pre .str, code .str { color: #060 }
+  pre .kwd, code .kwd { color: #006; font-weight: bold }
+  pre .com, code .com { color: #600; font-style: italic }
+  pre .typ, code .typ { color: #404; font-weight: bold }
+  pre .lit, code .lit { color: #044 }
+  pre .pun, code .pun { color: #440 }
+  pre .pln, code .pln { color: #000 }
+  pre .tag, code .tag { color: #006; font-weight: bold }
+  pre .atn, code .atn { color: #404 }
+  pre .atv, code .atv { color: #060 }
+}
+
 
 .footer {
   margin: 30px 0 0 0;
@@ -558,9 +586,11 @@ body.black ::-moz-selection, body.darky ::-moz-selection{background:#bada55;colo
 body.black ::selection, body.darky ::selection{background:#bada55;color:#EEF6D5;text-shadow:none;}
 
 body.blue {
-  color: #B7CBCB;
+  color: #FFE4CE;
   background: #81A0A0;
 }
+
+body.blue a{color: #CFE7CF;}
 
 body.darky {
   color: #C1C6C9;
@@ -576,8 +606,12 @@ body.darky .header .logo a {
 }
 
 body.brown {
-  color: #5f5f5f;
+  color: #333;
   background: #D9D5CB;
+}
+
+body.brown a {
+  color: #2A4C59;
 }
 
 /** fonts **/
