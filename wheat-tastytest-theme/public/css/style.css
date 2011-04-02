@@ -217,16 +217,16 @@ body a:hover {
   cursor: pointer;
 }
 
-.header p.colors {
+.header p.themes {
   font-size: 1em;
 }
 
-#container .header p.colors, #container .header p.colors a {
+#container .header p.themes, #container .header p.themes a {
   padding: 0;
   margin: 0;
 }
 
-.header p.colors a {
+.header p.themes a {
   display: block;
   float: left;
   width: 40px;
@@ -235,8 +235,8 @@ body a:hover {
   cursor: pointer;
 }
 
-.header p.colors a.light {background-color: #E6E6E6;}
-.header p.colors a.darky {background-color: #202020;}
+.header p.themes a.light {background-color: #E6E6E6;}
+.header p.themes a.darky {background-color: #202020;}
 
 /** search **/
 form.search {
@@ -364,7 +364,6 @@ code .com { color: #89A725; }
 	transform: scale(10);
 }
 
-/** quotes, warn further work needed on IE, does not even appear **/
 body blockquote {
 	font-family: Georgia;
 	display: block;
@@ -528,22 +527,6 @@ pre:after {
 }
 
 /** Themes **/
-.themes {
-  text-align: center;
-}
-
-.themes a {
-  margin: 0 1em;
-}
-
-.themes a:hover {
-  -moz-transform: scale(1.1);
-	-o-transform: scale(1.1);
-	-webkit-transform: scale(1.1);
-	-ms-transform: scale(1.1);
-	transform: scale(1.1);
-}
-
 body.black {
   background: #333;
   color: #ccc;
@@ -625,7 +608,8 @@ body.brown {
 
 }
 
-@media print{.str{color:#060}
+@media print{
+.str{color:#060}
 .kwd{color:#006;font-weight:bold}
 .com{color:#600;font-style:italic}
 .typ{color:#404;font-weight:bold}
