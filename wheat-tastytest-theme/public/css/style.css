@@ -237,6 +237,9 @@ body a:hover {
 
 .header p.themes a.light {background-color: #E6E6E6;}
 .header p.themes a.darky {background-color: #202020;}
+.header p.themes a:hover {
+  height: 15px;
+}
 
 /** search **/
 form.search {
@@ -273,10 +276,6 @@ form.search input{width: 30%;}
 	-webkit-transform: scale(1.1);
 	-ms-transform: scale(1.1);
 	transform: scale(1.1);
-}
-
-.header p.colors a:hover {
-  height: 15px;
 }
 
 /* Headings */
@@ -612,6 +611,15 @@ body.brown {
 
 body.brown a {
   color: #2A4C59;
+}
+
+body.badass, body.bada55 {
+  background: #bada55;
+  color: #3B3E31;
+}
+
+body.badass a, body.bada55 a {
+  color: #677D1C;
 }
 
 /** fonts **/
