@@ -251,8 +251,6 @@ createSimpleStorage( "memory", {} );
   hrefReg = /\#\/themes\/(\w+)/,
   widthReg = /tiny|large/,
   
-  woot 
-  
   themify = function(href) {
     var m = href.match(hrefReg),
     theme = m && m[1] ? m[1] : '',
