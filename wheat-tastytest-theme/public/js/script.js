@@ -51,7 +51,7 @@
       
       var art = $('.article-main'),
 
-      results = $('<div />', {class: 'results'});
+      results = $('<div />', {'class': 'results'});
       
       var form = $('<form />', {'class': 'search'})
         .append($('<input />', {
