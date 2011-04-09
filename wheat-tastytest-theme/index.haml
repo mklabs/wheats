@@ -2,7 +2,7 @@
   :each article in articles.slice(0,15)
     %article.article.clearfix
       %h2.article-title
-        %a{href: "/article/" + article.name, rel: 'bookmark', title: 'Permanent link to ' + article.title}&= article.title
+        %a{href: "/article/" + article.name, rel: 'bookmark', title: article.title}&= article.title
       .author
         .date{title: article.date}&= formatDate(article.date, "%d/%m/%Y")
       %p
